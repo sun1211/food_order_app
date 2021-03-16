@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_order_app/models/food.dart';
+import 'package:food_order_app/screen/detail/detail_screen.dart';
 import 'package:food_order_app/screen/home/components/first_food_card.dart';
 import 'package:food_order_app/screen/home/components/food_card.dart';
 import 'package:food_order_app/screen/home/components/menu_bar.dart';
@@ -39,7 +40,16 @@ class Body extends StatelessWidget {
             height: 30,
           ),
           FirstFoodCard(
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => DetailScreen(
+                    food: foodList[0],
+                  ),
+                ),
+              );
+            },
             food: foodList[0],
           ),
           SizedBox(
@@ -56,7 +66,16 @@ class Body extends StatelessWidget {
                 children: List.generate(
                     foodList.length,
                     (index) => FoodCard(
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => DetailScreen(
+                                  food: foodList[index],
+                                ),
+                              ),
+                            );
+                          },
                           food: foodList[index],
                         )),
               ),
